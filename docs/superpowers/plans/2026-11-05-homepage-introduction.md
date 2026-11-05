@@ -27,18 +27,18 @@ for development verification; publishing needs no runtime dependencies.
 
 ## Tasks
 
-- [ ] Add browser checks before the page; run `python scripts/verify_homepage.py -f`
+- [x] Add browser checks before the page; run `python scripts/verify_homepage.py -f`
   and confirm a missing introduction causes an assertion failure.
-- [ ] Implement the introduction and local image; keep confirmed copy verbatim.
+- [x] Implement the introduction and local image; keep confirmed copy verbatim.
   The role text must be `PhD（Pizza Hut Delivery） Student` in both languages.
-- [ ] Implement label switching; English must remain the initial language even
+- [x] Implement label switching; English must remain the initial language even
   when the browser locale is Chinese. Chinese labels are `个人介绍` and `跳至正文`.
   Controls must update `<html lang>` and `aria-pressed` and remain keyboard usable.
-- [ ] Run `node --check assets/js/language.js` and
+- [x] Run `node --check assets/js/language.js` and
   `python scripts/verify_homepage.py`; expect exit 0 and no browser errors.
   Check 320, 375, 768, and 1440 CSS pixel viewport widths and a no-JavaScript visit.
-- [ ] Inspect desktop and mobile screenshots. Provide a running local preview.
-- [ ] Record the check results and present stage 1 for the user's confirmation.
+- [x] Inspect desktop and mobile screenshots. Provide a running local preview.
+- [x] Record the check results and prepare stage 1 for the user's confirmation.
 
 ## Scope boundary
 
@@ -46,3 +46,19 @@ Do not add research/contact sections, their navigation, publications, projects,
 unapproved biography, or a deployment workflow in this stage. The GitHub link
 in the approved header remains part of the page frame. No remote GitHub
 repository is created or changed during this stage.
+
+## Verification record — 2026-11-05
+
+- Initial browser check failed with `The personal introduction is missing` before
+  implementation, establishing that the check detects the absent functionality.
+- `python scripts/verify_homepage.py`: 3 tests passed; covers English default in
+  a Chinese browser locale, keyboard language switching, exact approved copy,
+  document/pressed language state, all four widths, portrait loading, absence of
+  horizontal overflow, and readable content without JavaScript.
+- `node --check assets/js/language.js`: exit 0.
+- Desktop (1440px) and mobile (375px) screenshots visually inspected.
+- Portrait is 640 × 697 pixels, 55,108 bytes, with the full source image retained.
+- Preview at `http://127.0.0.1:4173/` returned HTTP 200 with the expected title.
+- Independent code review found no concrete issues; the reviewer reran the three
+  browser tests and the JavaScript syntax check successfully. Stage 1 is ready
+  for user review. Later stages still require explicit confirmation.
