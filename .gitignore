@@ -1,0 +1,6 @@
+# Local browser checks and generated previews
+output/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
