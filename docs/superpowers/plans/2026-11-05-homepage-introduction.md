@@ -84,3 +84,28 @@ JavaScript syntax and whitespace checks passed. Desktop/mobile screenshots were
 visually inspected. A direct comparison against the stage 1 commit confirmed
 that the introduction, header, footer, and all existing CSS rules are unchanged.
 The live preview returned HTTP 200 with the new research section present.
+
+## Stage 3 — contact information
+
+The user explicitly confirmed stage 2 before authorizing continuation.
+
+- [x] Add a browser check for the three exact contact destinations and translated
+  labels. Run it before implementation to confirm it detects the missing section.
+- [x] Add the contact section as the second item in the approved details grid.
+  Use GitHub `https://github.com/CloudzEa`, personal email `wyhfrlz@gmail.com`, and
+  university email `yh-wei26@mails.tsinghua.edu.cn`, with native `mailto:` links.
+  English heading is `Let's connect`; Chinese heading is `联系方式`.
+- [x] Add contact-only styles and translations. Keep all existing introduction,
+  research, header, footer, and style declarations unchanged.
+- [x] Run browser, syntax, and whitespace checks; inspect desktop and mobile
+  screenshots. Present this stage for confirmation before any publication work.
+
+Stage 3 verification: the contact check first failed on the missing contact
+heading. All 4 browser checks passed after implementation, including exact
+GitHub/email destinations in both languages, no-JavaScript fallback, and link
+bounds at all four widths. JavaScript syntax and whitespace checks passed.
+Desktop/mobile screenshots were inspected; an additional 320px Chinese check
+confirmed both email links fit without clipping or horizontal overflow. Direct
+comparisons confirmed the introduction, research, header, footer, and existing
+CSS rules are unchanged. The live preview returned HTTP 200 with both email
+destinations present. Publication work awaits explicit stage 3 confirmation.

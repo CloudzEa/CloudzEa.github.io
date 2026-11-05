@@ -262,6 +262,28 @@ h1 {
   overflow-wrap: anywhere;
 }
 
+.contact-links {
+  display: grid;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.contact-links a {
+  width: fit-content;
+  overflow-wrap: anywhere;
+}
+
+.contact-row {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+}
+
+.contact-label {
+  color: var(--secondary-ink);
+}
+
 .site-footer {
   display: flex;
   justify-content: space-between;

@@ -98,6 +98,11 @@ class IntroductionChecks(unittest.TestCase):
                 page.set_viewport_size({"width": width, "height": 1000})
                 self.assert_copy(page)
                 self.assertTrue(page.get_by_role("heading", name="Research interests", exact=True).is_visible())
+                self.assertTrue(page.get_by_role("heading", name="Let's connect", exact=True).is_visible())
+                for link in page.locator("#contact a").all():
+                    bounds = link.bounding_box()
+                    self.assertGreaterEqual(bounds["x"], 0)
+                    self.assertLessEqual(bounds["x"] + bounds["width"], width)
                 page.locator(".portrait img").wait_for()
                 self.assertTrue(page.locator(".portrait img").evaluate("image => image.complete && image.naturalWidth > 0"))
                 self.assertFalse(page.evaluate("document.documentElement.scrollWidth > innerWidth"))
@@ -115,7 +120,35 @@ class IntroductionChecks(unittest.TestCase):
         self.assert_copy(page)
         self.assertEqual(page.get_by_role("button").count(), 0)
         self.assertTrue(page.get_by_text("Interested in operating systems and computer networks.", exact=True).is_visible())
+        self.assertTrue(page.get_by_role("heading", name="Let's connect", exact=True).is_visible())
+        self.assertTrue(page.get_by_role("link", name="wyhfrlz@gmail.com", exact=True).is_visible())
         context.close()
+
+    def test_04_contact_links_follow_language_switch(self):
+        page = self.browser.new_page()
+        page.goto(self.url)
+        destinations = {
+            "GitHub · CloudzEa": "https://github.com/CloudzEa",
+            "wyhfrlz@gmail.com": "mailto:wyhfrlz@gmail.com",
+            "yh-wei26@mails.tsinghua.edu.cn": "mailto:yh-wei26@mails.tsinghua.edu.cn",
+        }
+        for language, heading, personal, university in (
+            ("English", "Let's connect", "Personal", "University"),
+            ("简体中文", "联系方式", "个人邮箱", "学校邮箱"),
+        ):
+            with self.subTest(language=language):
+                page.get_by_role("button", name=language, exact=True).click()
+                self.assertTrue(page.get_by_role("heading", name=heading, exact=True).is_visible())
+                contact = page.locator("#contact")
+                self.assertTrue(contact.get_by_text(personal, exact=True).is_visible())
+                self.assertTrue(contact.get_by_text(university, exact=True).is_visible())
+                self.assertEqual(contact.get_by_role("link").count(), 3)
+                for name, destination in destinations.items():
+                    link = contact.get_by_role("link", name=name, exact=True)
+                    self.assertTrue(link.is_visible(), name)
+                    self.assertEqual(link.get_attribute("href"), destination)
+                self.assert_copy(page)
+        page.close()
 
 
 if __name__ == "__main__":
