@@ -121,11 +121,11 @@ Noninteractive GitHub authentication was verified as `CloudzEa`; the target
   Package only `index.html`, `.nojekyll`, and `assets/` from the approved site.
 - [x] Run the browser checks, JavaScript syntax check, and workflow/artifact
   verification. Confirm the published page source and assets are unchanged.
-- [ ] Create the public user-site repository, push the already approved content,
+- [x] Create the public user-site repository, push the already approved content,
   enable Pages with workflow builds, then push the publication configuration.
-- [ ] Follow the deployment to completion; verify the public HTTPS page, image,
+- [x] Follow the deployment to completion; verify the public HTTPS page, image,
   style, script, language switching, and contact destinations in a real browser.
-- [ ] Record the live URL, validation result, and repository instructions.
+- [x] Record the live URL, validation result, and repository instructions.
 
 Official publication references checked on 2026-11-05:
 
@@ -135,3 +135,22 @@ Official publication references checked on 2026-11-05:
 - Official `actions/checkout`, `actions/configure-pages`,
   `actions/upload-pages-artifact`, and `actions/deploy-pages` release metadata
   and `action.yml` definitions are checked before pinning versions.
+
+### Publication verification — 2026-11-05
+
+- Public repository: https://github.com/CloudzEa/CloudzEa.github.io
+- Live site: https://cloudzea.github.io/
+- Initial workflow run completed successfully:
+  https://github.com/CloudzEa/CloudzEa.github.io/actions/runs/42012836280
+- GitHub initially enabled legacy Pages on the first source push. The existing
+  Pages site was updated to `workflow` mode via the documented update endpoint;
+  readback confirmed workflow mode and enforced HTTPS before the workflow push.
+- Online HTML, stylesheet, language script, and avatar returned HTTP 200 and
+  matched the SHA-256 hashes of the exact approved local files.
+- Real Chromium checks passed in both English and Chinese at 320, 375, 768, and
+  1440 pixels, covering approved copy, default English, language switching,
+  portrait loading, contact destinations, and absence of horizontal overflow.
+- No JavaScript runtime errors were observed. Local no-JavaScript fallback and
+  all four browser tests also passed before publication.
+- The final Pages workflow was independently reviewed with no concrete issues.
+  Page source and assets were unchanged throughout the publication stage.

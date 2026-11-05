@@ -5,13 +5,13 @@ GitHub Pages 个人主页，采用已确认的“薄荷手账”版式。
 第一板块（个人介绍、头像、英文默认与中文切换）已获用户确认。
 第二板块（研究兴趣）已获用户确认。
 第三板块（联系方式）已获用户确认。
-当前进入 GitHub Pages 发布与线上验证环节。
+GitHub Pages 发布完成，线上验证通过。
 
 ## GitHub Pages 发布
 
-目标仓库：https://github.com/CloudzEa/CloudzEa.github.io
+仓库：https://github.com/CloudzEa/CloudzEa.github.io
 
-目标地址：https://cloudzea.github.io/ （待首次部署验证）
+线上地址：https://cloudzea.github.io/
 
 发布使用 `.github/workflows/deploy-pages.yml`，在 `main` 分支更新时自动运行，
 也可从 GitHub Actions 手动运行。仓库的 Settings → Pages → Source 应设置为
@@ -19,6 +19,10 @@ GitHub Actions。
 
 部署内容只包含 `index.html`、`.nojekyll` 和 `assets/`。开发脚本、设计记录及
 检查截图不会进入网站部署产物。官方发布 Action 固定到已核验的提交版本。
+
+首次发布验证于 2026-11-05 完成：页面、CSS、JavaScript 和头像均返回 HTTP 200，
+文件哈希与已确认的本地版本一致；中英文在 320、375、768、1440 像素宽度下
+均通过浏览器检查，联系方式链接正确，未发现 JavaScript 运行错误。
 
 ## 本地预览
 
@@ -35,6 +39,7 @@ python -m http.server 4173 --bind 127.0.0.1
 
 ```text
 index.html                  页面结构与已确认的个人资料
+.github/workflows/          GitHub Pages 自动发布配置
 assets/
   css/site.css              版式、配色与响应式样式
   js/language.js            界面标签与文档语言切换

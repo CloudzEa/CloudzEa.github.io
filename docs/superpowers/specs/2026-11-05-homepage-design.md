@@ -45,7 +45,8 @@ Use local system fonts and local image assets, with no remote font requests.
 
 Each stage is presented to the user and waits for an explicit confirmation
 before the following stage is implemented. Stages 1, 2, and 3 were explicitly
-confirmed; current authorization is stage 4 (publication).
+confirmed. Stage 4 (publication) is complete and the live site is verified at
+https://cloudzea.github.io/.
 
 ## Architecture and checks
 
