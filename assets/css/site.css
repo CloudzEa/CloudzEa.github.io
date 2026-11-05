@@ -242,6 +242,26 @@ h1 {
   height: auto;
 }
 
+.details {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 35px;
+  margin-top: 42px;
+  padding-top: 25px;
+  border-top: 1px dashed var(--separator);
+}
+
+.details h2 {
+  margin: 0 0 12px;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.details p {
+  overflow-wrap: anywhere;
+}
+
 .site-footer {
   display: flex;
   justify-content: space-between;
@@ -308,6 +328,11 @@ h1 {
 
   .site-footer {
     padding-block: 22px 28px;
+  }
+
+  .details {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 26px;
   }
 }
 

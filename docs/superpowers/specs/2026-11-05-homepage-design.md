@@ -44,7 +44,8 @@ Use local system fonts and local image assets, with no remote font requests.
 4. GitHub Pages publication configuration and publication verification.
 
 Each stage is presented to the user and waits for an explicit confirmation
-before the following stage is implemented. Current authorization is stage 1.
+before the following stage is implemented. Stage 1 was explicitly confirmed;
+current authorization is stage 2.
 
 ## Architecture and checks
 

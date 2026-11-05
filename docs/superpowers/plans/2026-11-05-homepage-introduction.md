@@ -62,3 +62,25 @@ repository is created or changed during this stage.
 - Independent code review found no concrete issues; the reviewer reran the three
   browser tests and the JavaScript syntax check successfully. Stage 1 is ready
   for user review. Later stages still require explicit confirmation.
+
+## Stage 2 — research interests
+
+The user explicitly confirmed stage 1 before authorizing continuation.
+
+- [x] Extend the browser language check with the approved English and Chinese
+  interest sentences, then verify it fails before adding the section.
+- [x] Add the research section below the introduction with the approved dashed
+  separator and responsive details layout. Preserve the existing introduction,
+  header, portrait, and footer markup and style declarations verbatim.
+- [x] Add only `researchTitle` and `researchDescription` translations to the
+  existing language dictionary. Do not add new biography or research topics.
+- [x] Run browser checks and JavaScript syntax/whitespace checks; inspect desktop
+  and mobile screenshots and present stage 2 for confirmation. Contact remains
+  outside the current stage.
+
+Stage 2 verification: the extended browser check initially failed because the
+research heading was absent, then all 3 browser checks passed after the addition.
+JavaScript syntax and whitespace checks passed. Desktop/mobile screenshots were
+visually inspected. A direct comparison against the stage 1 commit confirmed
+that the introduction, header, footer, and all existing CSS rules are unchanged.
+The live preview returned HTTP 200 with the new research section present.

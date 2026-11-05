@@ -69,12 +69,16 @@ class IntroductionChecks(unittest.TestCase):
         self.assert_copy(page)
         self.assertEqual(page.locator("html").get_attribute("lang"), "en")
         self.assertTrue(page.get_by_text("About", exact=True).is_visible())
+        self.assertTrue(page.get_by_role("heading", name="Research interests", exact=True).is_visible())
+        self.assertTrue(page.get_by_text("Interested in operating systems and computer networks.", exact=True).is_visible())
         chinese = page.get_by_role("button", name="简体中文", exact=True)
         chinese.focus()
         page.keyboard.press("Enter")
         self.assertEqual(page.locator("html").get_attribute("lang"), "zh-CN")
         self.assertEqual(chinese.get_attribute("aria-pressed"), "true")
         self.assertTrue(page.get_by_text("个人介绍", exact=True).is_visible())
+        self.assertTrue(page.get_by_role("heading", name="研究兴趣", exact=True).is_visible())
+        self.assertTrue(page.get_by_text("对操作系统、计算机网络感兴趣", exact=True).is_visible())
         self.assert_copy(page)
         english = page.get_by_role("button", name="English", exact=True)
         english.click()
@@ -82,6 +86,7 @@ class IntroductionChecks(unittest.TestCase):
         self.assertEqual(chinese.get_attribute("aria-pressed"), "false")
         self.assertEqual(page.locator("html").get_attribute("lang"), "en")
         self.assert_copy(page)
+        self.assertTrue(page.get_by_text("Interested in operating systems and computer networks.", exact=True).is_visible())
         self.assertEqual(errors, [])
         page.close()
 
@@ -92,6 +97,7 @@ class IntroductionChecks(unittest.TestCase):
             with self.subTest(width=width):
                 page.set_viewport_size({"width": width, "height": 1000})
                 self.assert_copy(page)
+                self.assertTrue(page.get_by_role("heading", name="Research interests", exact=True).is_visible())
                 page.locator(".portrait img").wait_for()
                 self.assertTrue(page.locator(".portrait img").evaluate("image => image.complete && image.naturalWidth > 0"))
                 self.assertFalse(page.evaluate("document.documentElement.scrollWidth > innerWidth"))
@@ -108,6 +114,7 @@ class IntroductionChecks(unittest.TestCase):
         page.goto(self.url)
         self.assert_copy(page)
         self.assertEqual(page.get_by_role("button").count(), 0)
+        self.assertTrue(page.get_by_text("Interested in operating systems and computer networks.", exact=True).is_visible())
         context.close()
 
 

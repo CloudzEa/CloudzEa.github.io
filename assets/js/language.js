@@ -4,6 +4,8 @@
   const labels = {
     en: {
       about: "About",
+      researchTitle: "Research interests",
+      researchDescription: "Interested in operating systems and computer networks.",
       skip: "Skip to content",
       language: "Language",
       portrait: "Yunhai Wei's chosen avatar",
@@ -11,6 +13,8 @@
     },
     zh: {
       about: "个人介绍",
+      researchTitle: "研究兴趣",
+      researchDescription: "对操作系统、计算机网络感兴趣",
       skip: "跳至正文",
       language: "语言",
       portrait: "Yunhai Wei 选用的头像",
