@@ -109,3 +109,29 @@ confirmed both email links fit without clipping or horizontal overflow. Direct
 comparisons confirmed the introduction, research, header, footer, and existing
 CSS rules are unchanged. The live preview returned HTTP 200 with both email
 destinations present. Publication work awaits explicit stage 3 confirmation.
+
+## Stage 4 — GitHub Pages publication
+
+The user explicitly confirmed stage 3 and authorized the publication stage.
+Noninteractive GitHub authentication was verified as `CloudzEa`; the target
+`CloudzEa/CloudzEa.github.io` does not yet exist, including when authenticated.
+
+- [x] Add a GitHub Actions Pages workflow triggered by `main` pushes and manual
+  dispatch, using verified official action releases pinned to commit SHAs.
+  Package only `index.html`, `.nojekyll`, and `assets/` from the approved site.
+- [x] Run the browser checks, JavaScript syntax check, and workflow/artifact
+  verification. Confirm the published page source and assets are unchanged.
+- [ ] Create the public user-site repository, push the already approved content,
+  enable Pages with workflow builds, then push the publication configuration.
+- [ ] Follow the deployment to completion; verify the public HTTPS page, image,
+  style, script, language switching, and contact destinations in a real browser.
+- [ ] Record the live URL, validation result, and repository instructions.
+
+Official publication references checked on 2026-11-05:
+
+- https://docs.github.com/en/pages/quickstart
+- https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages
+- https://docs.github.com/en/rest/pages/pages?apiVersion=2022-11-28
+- Official `actions/checkout`, `actions/configure-pages`,
+  `actions/upload-pages-artifact`, and `actions/deploy-pages` release metadata
+  and `action.yml` definitions are checked before pinning versions.
